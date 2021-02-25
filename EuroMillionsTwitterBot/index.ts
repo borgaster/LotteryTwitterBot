@@ -6,7 +6,7 @@ import Twitter from 'twitter'
 dotenv.config()
 const PORT = process.env.PORT || 8080
 function handleRequest (request: any, response: { end: (arg0: string) => void }) {
-  response.end('EuroMillions Twitter Bot. Powered by Heroku')
+  response.end('Lottery Twitter bot')
 }
 const server = http.createServer(handleRequest)
 server.listen(PORT, function () {
