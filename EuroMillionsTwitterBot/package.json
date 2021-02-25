@@ -1,0 +1,31 @@
+{
+  "name": "euromillionstwitterbot",
+  "version": "1.0.0",
+  "description": "A simple twitter bot that generates an euro millions key",
+  "main": "index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "euromillions",
+    "twitter",
+    "bot"
+  ],
+  "author": "Andre Bastos",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/twitter": "^1.7.0",
+    "@typescript-eslint/eslint-plugin": "^4.15.2",
+    "@typescript-eslint/parser": "^4.15.2",
+    "eslint": "^7.20.0",
+    "eslint-config-standard": "^16.0.2",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.3.1",
+    "ts-node": "^9.1.1"
+  },
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "twitter": "^1.7.1"
+  }
+}
