@@ -17,6 +17,6 @@ server.listen(PORT, function () {
     access_token_key: process.env.ACCESS_TOKEN_KEY || '',
     access_token_secret: process.env.ACCESS_TOKEN_SECRET || ''
   }
-  const game = new LotteryTwitterBot(options)
+  const game = new LotteryTwitterBot(options, 'Euromillions')
   game.startListening('#MakeMeRichEuromillions')
 })

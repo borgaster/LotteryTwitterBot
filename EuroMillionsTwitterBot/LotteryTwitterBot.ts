@@ -6,8 +6,7 @@ import { Key } from './Key'
 export class LotteryTwitterBot {
   private twitterClient: Twitter;
   private readonly STREAM_METHOD: string = 'statuses/filter'
-  private readonly GAME_TYPE: KeyType = 'Euromillions'
-  constructor (options: Twitter.AccessTokenOptions) {
+  constructor (options: Twitter.AccessTokenOptions, private gameType: KeyType) {
     this.twitterClient = new Twitter(options)
   }
 
@@ -15,13 +14,13 @@ export class LotteryTwitterBot {
     this.twitterClient.stream(this.STREAM_METHOD, { track: hashtag }, (stream: events.EventEmitter) => {
       stream.on('data', (tweet: Twitter.ResponseData) => {
         console.log(tweet.user.screen_name + ' got a chance to be filthy rich!')
-        const key = KeyFactory.getGenerator(this.GAME_TYPE).generate()
+        const key = KeyFactory.getGenerator(this.gameType).generate()
         console.log(key)
         console.log(tweet)
         this.twitterClient.post('direct_messages/events/new', this.generateDM(key, tweet), (error, tweetReply) => {
           // if we get an error print it out
           if (error) {
-            throw error
+            console.log(error)
           }
           // print the text of the tweet we sent out
           console.log(tweetReply.text)
